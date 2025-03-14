@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindAid - Mental Health Support</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Styles */
+   /* ====== Base Styles ====== */
+:root {
+  --primary-color: #4A6FDC;
+  --secondary-color: #6C63FF;
+  --accent-color: #4e31ee;
+  --background-color: #F8F9FA;
+  --text-color: #333333;
+  --light-text: #6C757D;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Merriweather', serif;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* ====== Navbar ====== */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav-scrolled {
+  padding: 0.8rem 5%;
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-family: 'Merriweather', serif;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.get-started {
+  background-color: var(--accent-color);
+}
+
+.get-started:hover {
+  background-color: #ff5252;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 100%;
+  background-color: var(--text-color);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+/* ====== Hero Section ====== */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6C63FF 0%, #5A8DEE 100%);
+  color: white;
+  text-align: center;
+  padding: 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+  opacity: 0.1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  animation: fadeInUp 1s forwards;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.talk-button {
+  background-color: white;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  padding: 15px 40px;
+  margin-top: 1rem;
+  transition: var(--transition);
+}
+
+.talk-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== Services Section ====== */
+#services {
+  padding: 100px 5%;
+  background-color: white;
+}
+
+#services header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+#services h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  display: inline-block;
+  position: relative;
+}
+
+#services h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service {
+  background-color: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.service:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.service ul {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.service ul li {
+  margin-bottom: 0.8rem;
+}
+
+/* ====== Process Section ====== */
+#process {
+  padding: 100px 5%;
+  background-color: #f8f9fa;
+}
+
+#process header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+#process h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  display: inline-block;
+  position: relative;
+}
+
+#process h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  background-color: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: var(--primary-color);
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.step h2 {
+  color: var(--primary-color);
+}
+
+/* ====== Team Section ====== */
+#team {
+  padding: 100px 5%;
+  text-align: center;
+  background-color: white;
+}
+
+#team h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  display: inline-block;
+  position: relative;
+}
+
+#team h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.team-member {
+  background-color: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  color: var(--light-text);
+}
+
+/* ====== Get Started Section ====== */
+#getstarted {
+  background: linear-gradient(135deg, #6C63FF 0%, #5A8DEE 100%);
+  color: white;
+  padding: 80px 5%;
+  text-align: center;
+}
+
+#getstarted h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#getstarted p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#getstarted button {
+  background-color: white;
+  color: var(--primary-color);
+  margin: 0 10px;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+#getstarted button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== Contact Section ====== */
+.contact-section {
+  padding: 80px 5%;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-card {
+  background-color: white;
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.contact-card p {
+  margin-bottom: 2rem;
+}
+
+.contact-card a {
+  display: block;
+  margin-top: 1rem;
+}
+
+/* ====== Footer Section ====== */
+.footer-section {
+  background-color: #333;
+  color: white;
+  padding: 50px 5% 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.footer-left, .footer-right {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-left h3, .footer-right h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer-right a {
+  color: #ddd;
+}
+
+.footer-right a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ====== Animations ====== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====== Responsive Design ====== */
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    padding: 1rem 5%;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-links.active {
+    transform: translateY(0);
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .services, .process-grid, .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  #getstarted button {
+    margin-bottom: 1rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .talk-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  
+  #services h1, #process h1, #team h2 {
+    font-size: 2rem;
+  }
+  
+  .service, .step, .team-member {
+    padding: 1.5rem;
+  }
+  
+  .contact-card {
+    padding: 2rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <div class="logo">MindAid</div>
+    <div class="nav-links">
+      <a href="#services">Technology</a>
+      <a href="#process">Process</a>
+      <a href="#team">Team</a>
+    </div>
+    <button class="get-started">Get Started</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-content reveal">
+      <h1>Mental Health Chatbot<br>Designed for University Students</h1>
+      <button class="talk-button">Start Conversation</button>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services" class="reveal">
+    <h1>Our Technology</h1>
+    <div class="services">
+      <div class="service">
+        <h2>AI & NLP Core</h2>
+        <ul>
+          <li>Hugging Face Transformers</li>
+          <li>Sentiment Analysis Models</li>
+          <li>Conversational AI</li>
+        </ul>
+        <a href="#">Learn More →</a>
+      </div>
+      <div class="service">
+        <h2>Development Stack</h2>
+        <ul>
+          <li>Python Backend (Flask/FastAPI)</li>
+          <li>Streamlit Interface</li>
+          <li>Secure API Integration</li>
+        </ul>
+        <a href="#">Learn More →</a>
+      </div>
+      <div class="service">
+        <h2>Cloud Infrastructure</h2>
+        <ul>
+          <li>Google Cloud Deployment</li>
+          <li>HTTPS Encryption</li>
+          <li>PostgreSQL Database</li>
+        </ul>
+        <a href="#">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="reveal">
+    <h1>Our Development Process</h1>
+    <div class="process-grid">
+      <div class="step">
+        <h2>Data Collection</h2>
+        <p>Curated mental health datasets from verified sources</p>
+      </div>
+      <div class="step">
+        <h2>Model Training</h2>
+        <p>Fine-tuning AI models for empathetic responses</p>
+      </div>
+      <div class="step">
+        <h2>Testing</h2>
+        <p>Rigorous user testing and feedback implementation</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Get Started Section -->
+  <section id="getstarted" class="reveal">
+    <h2>Join Our Community</h2>
+    <p>Start your mental health journey today</p>
+    <button onclick="window.location.href='login'">Log In</button>
+    <button onclick="window.location.href='signup'">Sign Up</button>
+  </section>
+
+  <!-- Contact Section -->
+  <footer class="contact-section reveal">
+    <div class="contact-card">
+      <h2>Contact Support</h2>
+      <p>We're here to help 24/7</p>
+      <button>Email Support</button>
+      <p>contact@mindaid.com</p>
+    </div>
+  </footer>
+
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="footer-content">
+      <div class="footer-left">
+        <h3>MindAid</h3>
+        <p>Mental Health Support Platform</p>
+      </div>
+      <div class="footer-right">
+        <h3>Contact</h3>
+        <p>Delta University Campus</p>
+        <p>support@mindaid.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 MindAid. All rights reserved</p>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const menuToggle = document.createElement('div');
+  menuToggle.className = 'menu-toggle';
+  menuToggle.innerHTML = '<span></span><span></span><span></span>';
+  
+  const navBar = document.querySelector('.nav-bar');
+  const navLinks = document.querySelector('.nav-links');
+  const getStartedBtn = document.querySelector('.nav-bar .get-started');
+  
+  // Insert menu toggle before the nav links
+  navBar.insertBefore(menuToggle, navLinks);
+  
+  menuToggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+  
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navBar.classList.add('nav-scrolled');
+    } else {
+      navBar.classList.remove('nav-scrolled');
+    }
+  });
+  
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        // Close mobile menu if open
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Scroll reveal animation
+  const revealElements = document.querySelectorAll('.service, .step, .team-member');
+  revealElements.forEach(element => {
+    element.classList.add('fade-in');
+  });
+  
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+  
+  revealElements.forEach(element => {
+    observer.observe(element);
+  });
+  
+  // Typing effect for hero heading
+  const heroHeading = document.querySelector('.hero-content h1');
+  if (heroHeading) {
+    const originalText = heroHeading.innerText;
+    heroHeading.innerText = '';
+    
+    let i = 0;
+    const typeEffect = setInterval(() => {
+      if (i < originalText.length) {
+        heroHeading.innerText += originalText.charAt(i);
+        i++;
+      } else {
+        clearInterval(typeEffect);
+      }
+    }, 50);
+  }
+  
+  // Button hover effects
+  const buttons = document.querySelectorAll('button');
+  buttons.forEach(button => {
+    button.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-3px)';
+      this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+    });
+    
+    button.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+      this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    });
+  });
+  
+  // Service card hover effects
+  const serviceCards = document.querySelectorAll('.service');
+  serviceCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px)';
+      this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+      this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    });
+  });
+  
+  // Form validation for contact form (if added later)
+  document.querySelector('.contact-card button')?.addEventListener('click', function() {
+    alert('Thank you for your interest! We will get back to you soon.');
+  });
+  
+  // Add counter animation to statistics (if added later)
+  function animateCounter(element, target, duration) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += increment;
+      element.textContent = Math.floor(start);
+      if (start >= target) {
+        element.textContent = target;
+        clearInterval(timer);
+      }
+    }, 16);
+  }
+  
+  // Example usage (will only run if elements exist):
+  document.querySelectorAll('.counter').forEach(counter => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    if (!isNaN(target)) {
+      // Start animation when element is in view
+      const counterObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animateCounter(counter, target, 2000);
+          counterObserver.unobserve(counter);
+        }
+      });
+      counterObserver.observe(counter);
+    }
+  });
+  
+  // Enhance let's talk button
+  const talkButton = document.querySelector('.talk-button');
+  if (talkButton) {
+    talkButton.addEventListener('click', function() {
+      // Scroll to get started section or open chat interface
+      const getStartedSection = document.getElementById('getstarted');
+      if (getStartedSection) {
+        window.scrollTo({
+          top: getStartedSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  }
+  
+  // Add chat bubble indicator for future chatbot integration
+  const createChatBubble = () => {
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.innerHTML = `
+      <div class="chat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </div>
+    `;
+    
+    // Add styles
+    const style = document.createElement('style');
+    style.textContent = `
+      .chat-bubble {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .chat-bubble:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      }
+      
+      .chat-icon {
+        color: white;
+      }
+    `;
+    
+    document.head.appendChild(style);
+    document.body.appendChild(bubble);
+    
+    bubble.addEventListener('click', function() {
+      alert("Chatbot interface will open here. Coming soon!");
+      // Future chatbot interface code would go here
+    });
+  };
+  
+  // Add chat bubble with delay for better UX
+  setTimeout(createChatBubble, 2000);
+});
+  </script>
+</body>
+</html>

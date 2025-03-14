@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/css/log.css">
+    <a href="/Home">
+        <img src="/images/logo.png" alt="Logo" class="logo">
+    </a>
+</head>
+<style>
+    /* log.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #c5b4f3, #f5e6ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h2 {
+    font-family: 'Merriweather', serif;
+    color: #6a1b9a;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+label {
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+    font-weight: 600;
+}
+
+input {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #6a1b9a;
+}
+
+button[type="submit"] {
+    background-color: #6a1b9a;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #4a126b;
+    transform: translateY(-2px);
+}
+
+p {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+}
+
+a {
+    color: #6a1b9a;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #4a126b;
+}
+
+/* Flash messages */
+.flash {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .logo {
+        height: 40px;
+        top: 15px;
+        left: 15px;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+}
+</style>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+
+        <!-- Display flash messages for feedback -->
+        <% if (messages && messages.length > 0) { %>
+            <% messages.forEach(function(message) { %>
+                <div class="flash <%= message.category %>"><%= message.text %></div>
+            <% }); %>
+        <% } %>
+
+        <form action="/login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p>Don't have an account? <a href="/signup">Create one</a></p>
+    </div>
+    <script>
+        // Add this script at the end of the body if needed
+document.addEventListener('DOMContentLoaded', function() {
+    // Add animation to form elements
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+        });
+    });
+
+    // Auto-hide flash messages after 5 seconds
+    const flashMessages = document.querySelectorAll('.flash');
+    flashMessages.forEach(message => {
+        setTimeout(() => {
+            message.style.opacity = '0';
+            setTimeout(() => message.remove(), 500);
+        }, 5000);
+    });
+
+    // Add subtle hover effect to container
+    const container = document.querySelector('.container');
+    container.addEventListener('mousemove', (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        container.style.transform = 'rotateY(0) rotateX(0)';
+    });
+});
+    </script>
+</body>
+</html>

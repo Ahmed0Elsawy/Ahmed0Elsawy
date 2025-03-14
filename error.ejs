@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Occurred | Mental Health Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: #6c63ff;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .error-container {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .error-icon {
+            font-size: 80px;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        .error-title {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .error-message {
+            background-color: #f8f8f8;
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
+            text-align: left;
+            color: #555;
+            border-radius: 3px;
+            margin: 20px 0;
+        }
+        
+        .home-button {
+            display: inline-block;
+            background-color: #6c63ff;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .home-button:hover {
+            background-color: #5a52d5;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-brand">Mental Health Platform</div>
+    </div>
+    
+    <div class="error-container">
+        <div class="error-icon">⚠️</div>
+        <h1 class="error-title">Something Went Wrong</h1>
+        
+        <div class="error-message">
+            <%= error || 'An unexpected error occurred. Please try again later.' %>
+        </div>
+        
+        <p>
+            If this problem persists, please contact support.
+        </p>
+        
+        <a href="/home" class="home-button">Return to Home</a>
+    </div>
+    
+    <div class="footer">
+        &copy; <%= new Date().getFullYear() %> Mental Health Platform. All rights reserved.
+    </div>
+</body>
+</html>
