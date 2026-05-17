@@ -3,12 +3,6 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Ahmed%20Ayman%20Elsawy&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=32&desc=AI%20Engineer%20%7C%20Building%20Production-Grade%20Intelligent%20Systems&descAlignY=55&descAlign=50&descSize=18"/>
 
 <p align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&duration=2800&pause=800&color=22C55E&center=true&vCenter=true&width=900&height=100&lines=🚀+Production+AI+Engineer;🤖+Generative+AI+%26+LLM+Systems;🧠+Agentic+AI+%26+Multi-Agent+Orchestration;👁️+Computer+Vision+%26+Deep+Learning;⚙️+MLOps+%26+AI+Infrastructure;🔥+Shipping+AI+Products+That+Scale" alt="Typing SVG" />
-  </a>
-</p>
-
-<p align="center">
   <a href="https://www.linkedin.com/in/ahmed-elsawy-92a64334a">
     <img src="https://img.shields.io/badge/LinkedIn-Ahmed_Elsawy-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
   </a>
