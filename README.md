@@ -8,7 +8,6 @@
 
 <p align="center">
   <a href="https://linkedin.com/in/ahmed-elsawy"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-  <a href="https://github.com/AhmedAymanElsawy"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
   <a href="https://kaggle.com/ahmedelsawy"><img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white" alt="Kaggle"/></a>
   <a href="mailto:ahmedaymenelsawy@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
   <a href="tel:+201032788508"><img src="https://img.shields.io/badge/Phone-+20%201032788508-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Phone"/></a>
@@ -111,17 +110,17 @@ I deliver end‑to‑end AI solutions — from data preprocessing to model deplo
 ## 📊 GitHub Analytics
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=AhmedAymanElsawy&show_icons=true&theme=radical&hide_border=true&count_private=true" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AhmedAymanElsawy&theme=radical&hide_border=true" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Ahmed0Elsawy&show_icons=true&theme=radical&hide_border=true&count_private=true" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ahmed0Elsawy&theme=radical&hide_border=true" width="48%" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AhmedAymanElsawy&layout=compact&theme=radical&hide_border=true" width="48%" />
-  <img src="https://github-profile-trophy.vercel.app/?username=AhmedAymanElsawy&theme=radical&no-frame=true&row=1&column=4" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ahmed0Elsawy&layout=compact&theme=radical&hide_border=true" width="48%" />
+  <img src="https://github-profile-trophy.vercel.app/?username=Ahmed0Elsawy&theme=radical&no-frame=true&row=1&column=4" width="48%" />
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=AhmedAymanElsawy&label=Profile%20Views&color=0e75b6&style=flat" alt="profile views" />
+  <img src="https://komarev.com/ghpvc/?username=Ahmed0Elsawy&label=Profile%20Views&color=0e75b6&style=flat" alt="profile views" />
 </p>
 
 ---
