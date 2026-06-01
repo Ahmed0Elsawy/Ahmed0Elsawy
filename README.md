@@ -128,7 +128,7 @@ I deliver end‑to‑end AI solutions — from data preprocessing to model deplo
 ## 🤝 Let's Connect
 
 I'm always open to collaboration on **ML/NLP/CV projects**, **RAG systems**, or **Agentic AI**.  
-Reach out via [LinkedIn](https://linkedin.com/in/ahmed-elsawy) or [email](mailto:ahmedaymenelsawy@gmail.com) — let's build something amazing together!
+Reach out via [LinkedIn](https://www.linkedin.com/in/ahmed-ayman-elsawy) or [email](mailto:ahmedaymenelsawy@gmail.com) — let's build something amazing together!
 
 <p align="center">
   <i>“Production‑ready AI that makes a difference.”</i>
