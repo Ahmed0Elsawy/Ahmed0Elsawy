@@ -15,7 +15,6 @@
 - 🎓 BSc in **Artificial Intelligence** — Delta University for Science and Technology (2022 – 2026)
 - 🚀 **Generative & Agentic AI Trainee** at the Digital Egypt Pioneers Initiative (**DEPI**)
 - 🔬 I build **production-ready AI systems**: RAG pipelines, multi-agent architectures, AutoML platforms, and medical imaging models
-- 🌍 Passionate about applying AI to real-world problems — from **crowd safety at heritage sites** to **healthcare screening**
 - 📈 I care about the details that make ML trustworthy: leakage controls, time-based validation, class-imbalance handling, and audit trails
 
 ---
